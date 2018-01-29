@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+option java_package = "com.sergii.fgjx.sb.api";
+
+message Request {
+  string id = 1;
+  string requseterId = 2;
+  oneof opt {
+    SessionListRequest listSession = 3;
+    SessionJoinRequest joinSession = 4;
+    SessionCreateRequest createSession = 5;
+    PlayerListRequest listPlayers = 6;
+    RoleRequest role = 7;
+    SelectWeaponRequest weaponRequest = 8;
+    CodeTransmissionRequest transmission = 9;
+    ActivationRequest activation = 10;
+    ReportRequest report = 11;
+  }
+}
+message SessionListRequest {
+  uint32 size = 1;
+  uint32 page = 2;
+}
+message SessionJoinRequest {
+  string sessionId = 1;
+}
+message SessionCreateRequest {
+}
+message PlayerListRequest{
+  string sessionId = 1;
+}
+message RoleRequest {
+}
+message SelectWeaponRequest {
+  Weapon weapon = 1;
+}
+message CodeTransmissionRequest {
+}
+message ActivationRequest {
+  string code = 1;
+}
+message ReportRequest {
+
+}
+
+message Response {
+  string id = 1;
+  oneof opt {
+    SessionListResponse listSession = 2;
+    SessionJoinResponse joinSession = 3;
+    SessionCreateResponse createSession = 4;
+    PlayerListResponse listPlayers = 5;
+    RoleResponse role = 6;
+    WeaponSelectionResponse weaponResponse = 7;
+    CodeTransmissionResponse transmission = 8;
+    ActivationResponse activation = 9;
+    ReportResponse report = 10;
+  }
+}
+message SessionListResponse {
+  repeated string sesionId = 1;
+  uint32 total = 2;
+}
+message SessionJoinResponse {
+  bool success = 1;
+  string sessionId = 2;
+}
+message SessionCreateResponse {
+  bool success = 1;
+  string sessionId = 2;
+}
+message PlayerListResponse {
+  repeated string player = 1;
+}
+message RoleResponse {
+  bool master = 1;
+}
+message WeaponSelectionResponse {
+}
+message CodeTransmissionResponse {
+  string code = 1;
+}
+message ActivationResponse {
+  uint32 quality = 1;
+  uint32 delay = 2;
+}
+message ReportResponse {
+  bool victory = 1;
+  uint32 health = 2;
+  uint32 teamHealth = 3;
+  uint32 enemyHealth = 4;
+  uint32 attackPerformance = 5;
+  uint32 teamAttackPerformance = 6;
+  uint32 enemyAttackPerformance = 7;
+  uint32 defencePerformance = 8;
+  uint32 teamDefencePerformance = 9;
+  uint32 enemyDefencePerformance = 10;
+}
+enum Weapon{
+  BURRITO = 0;
+  HIGH_ENERGY_LAZER = 1;
+  PLAZMA_CANONS = 2;
+  TORPEDOES = 3;
+}
