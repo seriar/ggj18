@@ -35,7 +35,7 @@
         <paho.mqtt.version>1.2.0</paho.mqtt.version>
         <protobuf-java.version>3.5.1</protobuf-java.version>
         <!-- Internal -->
-        <sb-api.version>1.0.0</sb-api.version>
+        <sb-api.version>1.0.1-SNAPSHOT</sb-api.version>
         <!-- Logging -->
         <log4j.version>1.2.17</log4j.version>
         <slf4j.version>1.7.5</slf4j.version>
